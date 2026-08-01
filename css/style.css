@@ -1463,6 +1463,14 @@ svg {
   margin-top: 22px;
 }
 
+.testimonial-card__author > div:last-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
 .testimonial-card__avatar {
   width: 42px;
   height: 42px;
@@ -1474,6 +1482,7 @@ svg {
   justify-content: center;
   font-weight: 700;
   font-family: var(--font-display);
+  flex-shrink: 0;
 }
 
 .testimonial-card__author span {
@@ -1484,6 +1493,7 @@ svg {
 .testimonial-card__author strong {
   display: block;
   font-size: 0.92rem;
+  line-height: 1.3;
 }
 
 .testimonial-note {
@@ -1592,15 +1602,21 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 4px;
+  margin-top: 0;
   font-size: 0.75rem;
   color: var(--color-text-muted);
+  line-height: 1.2;
 }
 
 .testimonial-card__source svg {
-  width: 14px;
-  height: 14px;
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px;
+  max-height: 14px;
+  flex: 0 0 14px;
+  display: inline-block;
   color: var(--color-gold-deep);
+  fill: currentColor;
 }
 
 .testimonials-carousel__controls {
