@@ -24,6 +24,9 @@
 </head>
 <body>
 
+<div class="scroll-progress" data-scroll-progress></div>
+<div class="page-fade" data-page-fade></div>
+
 <div class="splash" data-splash>
   <img class="splash__logo" src="logo/logo-fo-psicologia-1.png" alt="FO Psicologia" />
   <div class="splash__line"></div>
@@ -84,7 +87,7 @@
   <section class="page-header">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Depoimentos</span></div>
-      <p class="eyebrow">Reconhecimento</p>
+      <p class="eyebrow"><span class="eyebrow__num">01</span>Reconhecimento</p>
       <h1>Avaliação 5 estrelas no Google</h1>
       <p>A confiança de quem já caminhou nesse processo terapêutico é o maior reflexo do cuidado em cada sessão.</p>
 
@@ -106,79 +109,234 @@
     </div>
   </section>
 
-  <!--
-    NOTA PARA A CLIENTE: os cards abaixo são EXEMPLOS de estrutura/layout.
-    Substitua os textos e iniciais por depoimentos reais de pacientes,
-    sempre mediante autorização expressa e respeitando o sigilo profissional
-    (conforme o Código de Ética do Psicólogo).
-  -->
   <section class="section">
     <div class="container">
       <div class="section-head section-head--center">
-        <p class="eyebrow" style="justify-content:center">Depoimentos</p>
-        <h2>O que dizem sobre o processo terapêutico</h2>
-        <p>Relatos compartilhados com autorização, respeitando sempre o sigilo profissional.</p>
+        <p class="eyebrow" style="justify-content:center">Google</p>
+        <h2>O que dizem no Google</h2>
+        <p>Avaliações reais de pacientes publicadas no Google.</p>
       </div>
 
-      <div class="testimonial-grid">
-        <div class="testimonial-card reveal reveal-1">
-          <span class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-          </span>
-          <p>"Espaço reservado para o depoimento de uma paciente sobre sua experiência no acompanhamento terapêutico."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">P</div>
-            <div>
-              <strong>Paciente</strong>
-              <span>Em acompanhamento</span>
-            </div>
+      <div class="testimonials-carousel reveal" data-carousel aria-roledescription="carrossel" aria-label="Depoimentos do Google">
+        <div class="testimonials-carousel__viewport">
+          <div class="testimonials-carousel__track">
+
+            <article class="testimonial-slide is-active" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Gostaria de registrar minha excelente experiência com a psicóloga Fabiana Oliveira. Trata-se de uma profissional extremamente competente, sensível e dedicada ao cuidado com seus pacientes. Desde o primeiro atendimento demonstra uma escuta atenta, empatia genuína e grande preparo técnico. Sua condução das sessões transmite segurança e acolhimento, criando um ambiente de confiança que facilita o processo terapêutico. Recomendo a psicóloga Fabiana Oliveira a todas as pessoas que buscam um acompanhamento sério, ético e verdadeiramente comprometido com o bem-estar psicológico."</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/priscilla-braga.png" alt="Priscilla Braga" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Priscilla Braga</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Dra Fabiana é muito competente no que faz. É uma psicóloga que traz resultados incríveis através de suas sessões de terapia. É muito educada e conduz com muita sabedoria o processo de desenvolvimento emocional do paciente. Agradeço a Deus por encontrá-la. Sou outra pessoa pós terapia."</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/siomara-faria.png" alt="Siomara Faria" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Siomara Faria</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Ela é sim uma pessoa iluminada e incrível. Sorriso contagiante, alto astral. Escuta com o coração e com seus conselhos deixa a vida mais leve. Grato por tê-la conhecido no momento que mais precisei. E como ela já disse: 'Conheça todas as teorias, domine todas as técnicas, mas ao tocar uma alma humana, seja apenas outra alma humana' — frase de Carl Jung. Continue com seu propósito de vida e todo sucesso do mundo."</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/marcos-andrade.png" alt="Marcos Andrade" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Marcos Andrade</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"A Fabi tem uma sensibilidade gigante e consegue acessar as caixinhas escondidas da nossa alma. Uma excelente profissional além de ser um doce de pessoa. A melhor psicóloga da vida!"</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/mariana-magalhaes.png" alt="Mariana Magalhães" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Mariana Magalhães</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Fabi vem fazendo diferença na minha vida há mais ou menos seis meses. Sou grata pela vida dela, pela profissional maravilhosa que ela é! Melhor psi!"</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/samara-carvalho.png" alt="Samara Carvalho" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Samara Carvalho</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Profissional maravilhosa, muito compreensiva, me deixa totalmente confortável nas sessões, além de ser uma pessoa muito incrível também."</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/jordana-vanusa.png" alt="Jordana Vanusa" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Jordana Vanusa</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Excelente profissional! Super dedicada e atenciosa com seus pacientes, e atende de acordo com a necessidade de cada um. Super recomendo!"</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/victor-santos.png" alt="Victor Santos" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Victor Santos</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-slide" data-slide>
+              <div class="testimonial-card">
+                <span class="stars" aria-label="5 estrelas">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                </span>
+                <p>"Ótima profissional, totalmente ética e dedicada por inteiro aos seus pacientes, sempre procurando o melhor para seus pacientes e seu melhor como profissional. Super recomendo, é um ser iluminado. Eu, como paciente, posso dizer a profissional maravilhosa que é."</p>
+                <div class="testimonial-card__author">
+                  <div class="testimonial-card__avatar">
+                    <img src="fotos/depoimentos/mariana-calazans.png" alt="Mariana Calazans" width="48" height="48" />
+                  </div>
+                  <div>
+                    <strong>Mariana Calazans</strong>
+                    <span class="testimonial-card__source">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+                      Avaliação no Google
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
           </div>
         </div>
 
-        <div class="testimonial-card reveal reveal-2">
-          <span class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-          </span>
-          <p>"Espaço reservado para o depoimento de uma paciente sobre a mentoria Entre Nós ou a psicoterapia."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">P</div>
-            <div>
-              <strong>Paciente</strong>
-              <span>Em acompanhamento</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal reveal-3">
-          <span class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
-          </span>
-          <p>"Espaço reservado para o depoimento de uma paciente sobre o atendimento online ou presencial."</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">P</div>
-            <div>
-              <strong>Paciente</strong>
-              <span>Em acompanhamento</span>
-            </div>
-          </div>
+        <div class="testimonials-carousel__controls">
+          <button type="button" class="carousel-btn" data-carousel-prev aria-label="Depoimento anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-dots" data-carousel-dots></div>
+          <button type="button" class="carousel-btn" data-carousel-next aria-label="Próximo depoimento">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </div>
 
       <p class="testimonial-note">
-        * Depoimentos ilustrativos, aguardando substituição por relatos reais de pacientes,
-        compartilhados mediante autorização e respeitando o sigilo profissional.
+        Relatos públicos do Google, publicados pelos próprios pacientes.
       </p>
     </div>
   </section>
@@ -209,7 +367,7 @@
   <section class="section">
     <div class="container">
       <div class="section-head section-head--center">
-        <p class="eyebrow" style="justify-content:center">Dúvidas</p>
+        <p class="eyebrow" style="justify-content:center"><span class="eyebrow__num">02</span>Dúvidas</p>
         <h2>Perguntas frequentes</h2>
       </div>
 
