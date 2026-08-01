@@ -19,7 +19,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -27,7 +27,7 @@
 
 <!-- ============ SPLASH ============ -->
 <div class="splash" data-splash>
-  <img class="splash__logo" src="logo/logo-fo-psicologia-3.png" alt="FO Psicologia" />
+  <img class="splash__logo" src="logo/logo-fo-psicologia-1.png" alt="FO Psicologia" />
   <div class="splash__line"></div>
   <span class="splash__tag">Psicoterapia baseada em evidências</span>
 </div>
@@ -36,7 +36,7 @@
 <header class="site-header" data-header>
   <div class="container">
     <a href="index.html" class="brand">
-      <img src="logo/logo-fo-psicologia-2.png" alt="FO Psicologia — Fabiana Oliveira, Psicóloga" />
+      <img src="logo/logo-fo-psicologia-1.png" alt="FO Psicologia — Fabiana Oliveira, Psicóloga" />
     </a>
 
     <nav class="nav-desktop" aria-label="Navegação principal">
@@ -87,6 +87,7 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <div class="hero__dots"></div>
     <div class="container">
       <div class="hero__content">
         <p class="eyebrow">Psicóloga Clínica · Terapia Cognitivo-Comportamental</p>
@@ -117,11 +118,32 @@
       </div>
 
       <div class="hero__visual">
-        <div class="hero__visual-shape"></div>
-        <img src="fotos/foto.webp" alt="Fabiana Oliveira, psicóloga clínica da FO Psicologia" />
-        <div class="hero__visual-tag">
-          <strong>TCC</strong>
-          Terapia baseada em evidências científicas
+        <span class="hero__glow hero__glow--1"></span>
+        <span class="hero__glow hero__glow--2"></span>
+        <span class="hero__ring"></span>
+
+        <div class="hero__photo-wrap">
+          <img class="hero__photo" src="fotos/hero.png" alt="Fabiana Oliveira, psicóloga clínica da FO Psicologia" />
+        </div>
+
+        <div class="float-badge float-badge--tcc">
+          <span class="float-badge__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5a2.5 2.5 0 0 0 0 5H20"/></svg>
+          </span>
+          <span>
+            TCC
+            <span style="display:block;font-weight:700;color:var(--color-charcoal);font-size:0.82rem">Base científica</span>
+          </span>
+        </div>
+
+        <div class="float-badge float-badge--google">
+          <span class="float-badge__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7-6.3-3.9L5.7 21l1.7-7L2 9.2l7.1-.6L12 2z"/></svg>
+          </span>
+          <span>
+            Google
+            <span style="display:block;font-weight:700;color:var(--color-charcoal);font-size:0.82rem">5 estrelas</span>
+          </span>
         </div>
       </div>
     </div>
@@ -137,7 +159,7 @@
       </div>
 
       <div class="specialty-grid">
-        <div class="specialty-card reveal">
+        <div class="specialty-card reveal reveal-1">
           <div class="specialty-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a5.5 5.5 0 0 0-5.44 6.32A4.5 4.5 0 0 0 5 17h1"/><path d="M14.5 2a5.5 5.5 0 0 1 5.44 6.32A4.5 4.5 0 0 1 19 17h-1"/><path d="M9.5 2c1.5 0 2.5 1.5 2.5 3v14c0 1.5-1 3-2.5 3S7 20.5 7 19"/><path d="M14.5 2c-1.5 0-2.5 1.5-2.5 3v14c0 1.5 1 3 2.5 3s2.5-1.5 2.5-3"/></svg>
           </div>
@@ -145,7 +167,7 @@
           <p>Estratégias práticas para lidar com o excesso de preocupação e construir vínculos mais saudáveis.</p>
         </div>
 
-        <div class="specialty-card reveal">
+        <div class="specialty-card reveal reveal-2">
           <div class="specialty-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/><path d="M9 12h1.5l1-2 2 4 1-2H16"/></svg>
           </div>
@@ -153,7 +175,7 @@
           <p>Desenvolvimento de autonomia afetiva e fortalecimento da autoestima nas relações.</p>
         </div>
 
-        <div class="specialty-card reveal">
+        <div class="specialty-card reveal reveal-3">
           <div class="specialty-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6a3 3 0 0 0 3 3v9"/><path d="M11 3v8"/><path d="M15 3c-1.7 1-2.5 3-2.5 5.5S13.3 13 15 14v7"/></svg>
           </div>
@@ -161,7 +183,7 @@
           <p>Cuidado especializado na relação com o corpo, alimentação e autoimagem.</p>
         </div>
 
-        <div class="specialty-card reveal">
+        <div class="specialty-card reveal reveal-4">
           <div class="specialty-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0"/><path d="M12 18v3"/><path d="M9 21h6"/></svg>
           </div>
@@ -173,7 +195,7 @@
   </section>
 
   <!-- ============ ABORDAGEM / SOBRE ============ -->
-  <section class="section section--alt" id="abordagem">
+  <section class="section section--sand" id="abordagem">
     <div class="container">
       <div class="about-grid">
         <div class="about-grid__image reveal">
@@ -191,7 +213,7 @@
           </p>
 
           <div class="approach-list">
-            <div class="approach-item reveal">
+            <div class="approach-item reveal reveal-1">
               <div class="approach-item__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"/></svg>
               </div>
@@ -201,7 +223,7 @@
               </div>
             </div>
 
-            <div class="approach-item reveal">
+            <div class="approach-item reveal reveal-2">
               <div class="approach-item__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5a2.5 2.5 0 0 0 0 5H20"/></svg>
               </div>
@@ -211,7 +233,7 @@
               </div>
             </div>
 
-            <div class="approach-item reveal">
+            <div class="approach-item reveal reveal-3">
               <div class="approach-item__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
               </div>
@@ -249,11 +271,11 @@
             <span>Base científica</span>
           </div>
           <div class="stat">
-            <h3>100%</h3>
+            <h3 data-count-to="100" data-suffix="%">0%</h3>
             <span>Presencial e online</span>
           </div>
           <div class="stat">
-            <h3>+5</h3>
+            <h3 data-count-to="5" data-prefix="+">0</h3>
             <span>Anos de dedicação clínica</span>
           </div>
         </div>

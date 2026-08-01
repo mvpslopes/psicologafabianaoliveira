@@ -123,6 +123,105 @@
     });
   }
 
+  /* ---------- Hero parallax (mousemove) ---------- */
+  function initHeroParallax() {
+    var hero = document.querySelector(".hero");
+    if (!hero) return;
+
+    var isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (prefersReducedMotion || !isFinePointer) return;
+
+    var photo = hero.querySelector(".hero__photo-wrap");
+    var glows = hero.querySelectorAll(".hero__glow");
+    var badges = hero.querySelectorAll(".float-badge");
+
+    hero.addEventListener("mousemove", function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      if (photo) {
+        photo.style.transform =
+          "translate(" + x * -14 + "px," + y * -14 + "px)";
+      }
+      glows.forEach(function (glow, i) {
+        var depth = i % 2 === 0 ? 18 : -18;
+        glow.style.transform =
+          "translate(" + x * depth + "px," + y * depth + "px)";
+      });
+      badges.forEach(function (badge, i) {
+        var depth = i % 2 === 0 ? -10 : 10;
+        badge.style.marginLeft = x * depth + "px";
+        badge.style.marginTop = y * depth + "px";
+      });
+    });
+
+    hero.addEventListener("mouseleave", function () {
+      if (photo) photo.style.transform = "";
+      glows.forEach(function (glow) {
+        glow.style.transform = "";
+      });
+      badges.forEach(function (badge) {
+        badge.style.marginLeft = "";
+        badge.style.marginTop = "";
+      });
+    });
+  }
+
+  /* ---------- Animated counters ---------- */
+  function initCounters() {
+    var counters = document.querySelectorAll("[data-count-to]");
+    if (!counters.length) return;
+
+    var animate = function (el) {
+      var target = parseFloat(el.getAttribute("data-count-to"));
+      var prefix = el.getAttribute("data-prefix") || "";
+      var suffix = el.getAttribute("data-suffix") || "";
+
+      if (prefersReducedMotion) {
+        el.textContent = prefix + target + suffix;
+        return;
+      }
+
+      var duration = 1400;
+      var start = null;
+
+      var step = function (timestamp) {
+        if (!start) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = Math.round(target * eased);
+        el.textContent = prefix + value + suffix;
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      counters.forEach(animate);
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    counters.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
   /* ---------- Accordion (FAQ) ---------- */
   function initAccordion() {
     var triggers = document.querySelectorAll(".accordion-trigger");
@@ -217,6 +316,8 @@
     initHeaderScroll();
     initMobileNav();
     initReveal();
+    initHeroParallax();
+    initCounters();
     initAccordion();
     initContactForm();
     initYear();
