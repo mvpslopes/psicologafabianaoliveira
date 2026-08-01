@@ -291,6 +291,8 @@
       var url =
         "https://wa.me/" + whatsNumber + "?text=" + encodeURIComponent(text);
 
+      trackWhatsAppClick("contact_form");
+
       if (feedback) {
         feedback.classList.add("is-visible");
         feedback.textContent =
@@ -476,6 +478,82 @@
     });
   }
 
+  /* ---------- WhatsApp click tracking (GA4) ---------- */
+  function trackWhatsAppClick(label) {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("event", "whatsapp_click", {
+      event_category: "engagement",
+      event_label: label || "whatsapp",
+      transport_type: "beacon",
+    });
+  }
+
+  function initWhatsAppTracking() {
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest(
+        'a[href*="wa.me"], a[href*="whatsapp"], .whatsapp-float'
+      );
+      if (!link) return;
+
+      var label = "link";
+      if (link.classList.contains("whatsapp-float")) label = "float";
+      else if (link.classList.contains("btn--whatsapp")) label = "button";
+      else if (link.closest("header")) label = "header";
+      else if (link.closest("footer")) label = "footer";
+
+      trackWhatsAppClick(label);
+    });
+  }
+
+  /* ---------- Presence heartbeat (online agora) ---------- */
+  function getVisitorId() {
+    var key = "fo_visitor_id";
+    var id = null;
+    try {
+      id = localStorage.getItem(key);
+    } catch (e) {}
+    if (!id) {
+      id =
+        "v_" +
+        Math.random().toString(36).slice(2) +
+        Date.now().toString(36);
+      try {
+        localStorage.setItem(key, id);
+      } catch (e) {}
+    }
+    return id;
+  }
+
+  function sendPresencePing() {
+    var payload = JSON.stringify({
+      visitor: getVisitorId(),
+      path: window.location.pathname || "/",
+    });
+
+    if (navigator.sendBeacon) {
+      try {
+        var blob = new Blob([payload], { type: "application/json" });
+        navigator.sendBeacon("presence/ping.php", blob);
+        return;
+      } catch (e) {}
+    }
+
+    fetch("presence/ping.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true,
+    }).catch(function () {});
+  }
+
+  function initPresence() {
+    sendPresencePing();
+    window.setInterval(sendPresencePing, 30000);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) sendPresencePing();
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initSplash();
     initHeaderScroll();
@@ -489,5 +567,7 @@
     initYear();
     initScrollProgress();
     initPageTransitions();
+    initWhatsAppTracking();
+    initPresence();
   });
 })();

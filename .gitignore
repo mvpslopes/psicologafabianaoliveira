@@ -4,3 +4,13 @@ desktop.ini
 *.log
 .vscode/
 dist/
+
+# Credenciais da área interna (não versionar)
+admin/config.php
+admin/private/*.json
+!admin/private/.htaccess
+admin/data/cache/*
+!admin/data/cache/.gitkeep
+
+# Chave da service account na raiz (manter só localmente)
+graphic-ripsaw-*.json
