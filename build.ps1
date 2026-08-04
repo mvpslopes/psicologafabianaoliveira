@@ -29,7 +29,9 @@ New-Item -ItemType Directory -Path (Join-Path $dist "fotos") | Out-Null
   "foto.webp",
   "hero.png",
   "consultorio-1.png",
-  "consultorio-2.png"
+  "consultorio-2.png",
+  "IMG_1476.PNG",
+  "IMG_1570.PNG"
 ) | ForEach-Object {
   Copy-Item (Join-Path $root "fotos\$_") (Join-Path $dist "fotos")
 }

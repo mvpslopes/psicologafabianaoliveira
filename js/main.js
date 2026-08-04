@@ -10,15 +10,19 @@
   ).matches;
 
   /* ---------- Splash screen ---------- */
-  function initSplash() {
+  function initSplash(onDone) {
     var splash = document.querySelector("[data-splash]");
-    if (!splash) return;
+    if (!splash) {
+      if (onDone) onDone(0);
+      return;
+    }
 
     var alreadyShown = sessionStorage.getItem("fo_splash_shown");
 
     if (alreadyShown || prefersReducedMotion) {
       splash.setAttribute("hidden", "");
       document.body.classList.remove("no-scroll");
+      if (onDone) onDone(0);
       return;
     }
 
@@ -31,6 +35,8 @@
       window.setTimeout(function () {
         splash.setAttribute("hidden", "");
       }, 900);
+      // Anima o conteúdo junto com o fade-out do splash
+      if (onDone) onDone(120);
     };
 
     var timer = window.setTimeout(hide, 2400);
@@ -94,10 +100,30 @@
     });
   }
 
+  /* ---------- Content ready (animações de entrada) ---------- */
+  function markContentReady(delay) {
+    window.setTimeout(function () {
+      document.documentElement.classList.add("is-ready");
+      document.documentElement.classList.remove("fo-entering");
+      initReveal();
+    }, Math.max(delay || 0, 40));
+  }
+
   /* ---------- Scroll reveal ---------- */
   function initReveal() {
     var items = document.querySelectorAll(".reveal");
     if (!items.length) return;
+
+    var show = function (el) {
+      // Dois frames + delay: evita pintar já com is-visible (sem transição)
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          window.setTimeout(function () {
+            el.classList.add("is-visible");
+          }, 40);
+        });
+      });
+    };
 
     if (prefersReducedMotion || !("IntersectionObserver" in window)) {
       items.forEach(function (el) {
@@ -110,12 +136,12 @@
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            show(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
     items.forEach(function (el) {
@@ -452,6 +478,36 @@
   }
 
   /* ---------- Page transitions ---------- */
+  function finishPageEnter(onDone) {
+    var overlay = document.querySelector("[data-page-fade]");
+    var entering = false;
+
+    try {
+      entering = sessionStorage.getItem("fo_page_transition") === "1";
+    } catch (e) {}
+
+    if (entering && overlay && !prefersReducedMotion) {
+      try {
+        sessionStorage.removeItem("fo_page_transition");
+      } catch (e) {}
+
+      overlay.classList.add("is-active", "is-entering");
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          overlay.classList.remove("is-active");
+          if (onDone) onDone(80);
+          window.setTimeout(function () {
+            overlay.classList.remove("is-entering");
+          }, 450);
+        });
+      });
+      return;
+    }
+
+    document.documentElement.classList.remove("fo-entering");
+    if (onDone) onDone(0);
+  }
+
   function initPageTransitions() {
     var overlay = document.querySelector("[data-page-fade]");
     if (!overlay || prefersReducedMotion) return;
@@ -466,10 +522,17 @@
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
         var href = link.getAttribute("href");
-        var samePage = href === window.location.pathname.split("/").pop();
-        if (samePage) return;
+        if (!href) return;
+
+        var current = window.location.pathname.split("/").pop() || "index.html";
+        var target = href.split("#")[0];
+        if (!target) target = current;
+        if (target === current) return;
 
         e.preventDefault();
+        try {
+          sessionStorage.setItem("fo_page_transition", "1");
+        } catch (err) {}
         overlay.classList.add("is-active");
         window.setTimeout(function () {
           window.location.href = href;
@@ -555,10 +618,8 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initSplash();
     initHeaderScroll();
     initMobileNav();
-    initReveal();
     initHeroParallax();
     initCounters();
     initAccordion();
@@ -569,5 +630,27 @@
     initPageTransitions();
     initWhatsAppTracking();
     initPresence();
+
+    if (prefersReducedMotion) {
+      document.documentElement.classList.add("is-ready");
+      document.documentElement.classList.remove("fo-entering");
+      initReveal();
+      initSplash();
+      return;
+    }
+
+    // Splash / fade de página → só então libera animações do topo
+    initSplash(function (splashDelay) {
+      finishPageEnter(function (enterDelay) {
+        markContentReady(Math.max(splashDelay || 0, enterDelay || 0));
+      });
+    });
+
+    // Fallback: nunca deixa o conteúdo invisível se algo falhar
+    window.setTimeout(function () {
+      if (!document.documentElement.classList.contains("is-ready")) {
+        markContentReady(0);
+      }
+    }, 4000);
   });
 })();

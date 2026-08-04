@@ -35,6 +35,17 @@
 
 <div class="scroll-progress" data-scroll-progress></div>
 <div class="page-fade" data-page-fade></div>
+<script>
+(function () {
+  try {
+    if (sessionStorage.getItem('fo_page_transition') === '1') {
+      document.documentElement.classList.add('fo-entering');
+      var el = document.querySelector('[data-page-fade]');
+      if (el) el.classList.add('is-active');
+    }
+  } catch (e) {}
+})();
+</script>
 
 <div class="splash" data-splash>
   <img class="splash__logo" src="logo/logo-fo-psicologia-1.png" alt="FO Psicologia" />
@@ -51,17 +62,23 @@
     <nav class="nav-desktop" aria-label="Navegação principal">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="servicos.html">Serviços</a></li>
-        <li><a href="depoimentos.html" class="is-active">Depoimentos</a></li>
-        <li><a href="contato.html">Contato</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="metodologia.html">Metodologia</a></li>
+        <li><a href="beneficios.html">Benefícios da terapia</a></li>
+        <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
       <a href="https://wa.me/5531986453396?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" class="btn btn--primary" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-        Agendar consulta
+        <span>Agendar consulta</span>
       </a>
+      <div class="header-social">
+        <a href="https://www.instagram.com/psi_fabianaoliveira/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+      </div>
       <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Abrir menu">
         <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
@@ -74,9 +91,10 @@
   <nav aria-label="Navegação mobile">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="depoimentos.html">Depoimentos</a></li>
-      <li><a href="contato.html">Contato</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="metodologia.html">Metodologia</a></li>
+      <li><a href="beneficios.html">Benefícios da terapia</a></li>
+      <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
     </ul>
   </nav>
   <div class="nav-mobile__footer">
@@ -364,55 +382,15 @@
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
+  <!-- ============ FAQ CTA ============ -->
   <section class="section">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <p class="eyebrow" style="justify-content:center"><span class="eyebrow__num">02</span>Dúvidas</p>
-        <h2>Perguntas frequentes</h2>
-      </div>
-
-      <div class="accordion" style="max-width:760px;margin:0 auto">
-        <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">
-            Como saber se preciso de terapia?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="accordion-panel">
-            <p>Você não precisa esperar que o sofrimento se intensifique para buscar ajuda. Se a ansiedade, a insegurança, a relação com a comida ou os relacionamentos têm impactado sua rotina e seu bem-estar, a psicoterapia pode ser um recurso valioso de cuidado.</p>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">
-            Como funciona a primeira sessão?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="accordion-panel">
-            <p>A primeira sessão é um momento de acolhimento e escuta. Conversamos sobre sua história, as questões que motivaram a busca por terapia e seus objetivos, além de explicar como funciona o processo terapêutico com a TCC.</p>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">
-            A terapia online tem a mesma eficácia da presencial?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="accordion-panel">
-            <p>Sim. Diversos estudos científicos demonstram que a psicoterapia online pode ser tão eficaz quanto a presencial, mantendo os mesmos princípios éticos e técnicos, com a vantagem da praticidade e flexibilidade.</p>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-trigger" aria-expanded="false">
-            Qual a frequência das sessões?
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="accordion-panel">
-            <p>As sessões geralmente ocorrem uma vez por semana, com duração média de 50 minutos. A frequência pode ser ajustada de acordo com a demanda e a evolução de cada processo terapêutico.</p>
-          </div>
-        </div>
-      </div>
+    <div class="container text-center">
+      <p class="eyebrow" style="justify-content:center"><span class="eyebrow__num">02</span>Dúvidas</p>
+      <h2>Perguntas frequentes</h2>
+      <p class="lede" style="max-width:520px;margin:0 auto 28px">
+        Tire suas dúvidas sobre o processo terapêutico, sessões online, sigilo e agendamento.
+      </p>
+      <a href="perguntas-frequentes.html" class="btn btn--outline">Ver perguntas frequentes</a>
     </div>
   </section>
 
@@ -457,8 +435,10 @@
         <h5>Navegação</h5>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="servicos.html">Serviços</a></li>
-          <li><a href="depoimentos.html">Depoimentos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="metodologia.html">Metodologia</a></li>
+          <li><a href="beneficios.html">Benefícios da terapia</a></li>
+          <li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </div>

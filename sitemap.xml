@@ -6,14 +6,34 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://psicologafabianaoliveira.com.br/servicos.html</loc>
+    <loc>https://psicologafabianaoliveira.com.br/sobre.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://psicologafabianaoliveira.com.br/metodologia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://psicologafabianaoliveira.com.br/beneficios.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://psicologafabianaoliveira.com.br/perguntas-frequentes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://psicologafabianaoliveira.com.br/servicos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://psicologafabianaoliveira.com.br/depoimentos.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://psicologafabianaoliveira.com.br/contato.html</loc>
